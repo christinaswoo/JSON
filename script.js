@@ -81,9 +81,9 @@ let jsonDatabase = [
     "color": "#660033"
   },
   {
-    "image": "IMG_3883.JPG",
-    "name": "DAWGLILA and DAWGKOTA",
-    "mood": "held against their will! Help them! 😧",
+    "image": "IMG_3446.JPG",
+    "name": "DAWGKOTA and DAWGLILA",
+    "mood": "extra lucky 🧧",
     "color": "#660066"
   },
   {
@@ -93,15 +93,15 @@ let jsonDatabase = [
     "color": "#330066"
   },
   {
-    "image": "IMG_3446.JPG",
-    "name": "DAWGKOTA and DAWGLILA",
-    "mood": "extra lucky 🧧",
+    "image": "IMG_3883.JPG",
+    "name": "DAWGLILA and DAWGKOTA",
+    "mood": "held against their will! Help them! 😧",
     "color": "#000066"
   },
   {
-    "image": "IMG_8696.jpg",
-    "name": "DAWGKOTA",
-    "mood": "a little carsick 🤤",
+    "image": "lp_image.JPG",
+    "name": "DAWGLILA",
+    "mood": "hungry. Don't touch her bone! 🦴",
     "color": "#003366"
   },
   {
@@ -111,9 +111,9 @@ let jsonDatabase = [
     "color": "#006666"
   },
   {
-    "image": "lp_image.JPG",
-    "name": "DAWGLILA",
-    "mood": "hungry. Don't touch her bone! 🦴",
+    "image": "IMG_8696.jpg",
+    "name": "DAWGKOTA",
+    "mood": "a little carsick 🤤",
     "color": "#006633"
   },
   {
@@ -124,53 +124,117 @@ let jsonDatabase = [
   }  
 ];
 
-document.addEventListener('DOMContentLoaded', function (event) {
-  for (let i = 0; i < jsonDatabase.length; i++) {
-    createGalleryBox(jsonDatabase[i]);
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  for (var i = 0; i < jsonDatabase.length; i++) {
+  createElementProper(jsonDatabase[i]);
   }
 });
 
-function createGalleryBox(dawg) {
-  let galleryBox = document.createElement('DIV');
-  galleryBox.classList.add('galleryBox');
 
-  let galleryLink = document.createElement('A');
-  galleryLink.setAttribute('data-fancybox', 'gallery');
-  galleryLink.setAttribute('data-width', '700');
-  galleryLink.setAttribute('data-height', '700');
+function createElementProper(incomingJSON) {
+  let newBox = document.createElement("DIV");
+  newBox.classList.add("newBox");
+  newBox.style.backgroundColor = incomingJSON["color"];
 
-  let galleryImage = document.createElement('IMG');
-  galleryImage.classList.add('galleryImage'); 
-  galleryImage.setAttribute('src', dawg.image);
-  galleryImage.setAttribute('alt', dawg.name);
+  let newImage = document.createElement("IMG");
+  newImage.classList.add("doggy");
+  newImage.src = incomingJSON["image"];
 
-  galleryLink.appendChild(galleryImage);
-  galleryBox.appendChild(galleryLink);
+  // Create a separate anchor for Fancybox
+  let newImageFancybox = document.createElement("A");
+  newImageFancybox.href = incomingJSON["image"];
+  newImageFancybox.setAttribute("data-fancybox", "gallery");
+  newImageFancybox.appendChild(newImage);
 
-  let galleryInfo = document.createElement('DIV');
-  galleryInfo.classList.add('galleryInfo');
+  newBox.appendChild(newImageFancybox);
 
-  let newName = document.createElement('P');
-  newName.classList.add('nameClass');
-  newName.innerText = dawg.name;
+  let galleryInfo = document.createElement("DIV");
+  galleryInfo.classList.add("galleryInfo");
+
+  let newName = document.createElement("P");
+  newName.classList.add("nameClass");
+  newName.innerText = incomingJSON["name"];
   galleryInfo.appendChild(newName);
 
-  let newMood = document.createElement('P');
-  newMood.innerText = "feeling... " + dawg.mood;
-  newMood.classList.add('moodClass');
+  let newMood = document.createElement("P");
+  newMood.classList.add("moodClass");
+  newMood.innerText = "feeling... " + incomingJSON["mood"];
   galleryInfo.appendChild(newMood);
 
-  galleryBox.style.backgroundColor = dawg.color;
-
-  galleryBox.appendChild(galleryInfo);
-
-  dawgsGallery.appendChild(galleryBox);
-
-
-//stopping the images from disappearing after exiting lightbox
-  galleryLink.addEventListener('click', function (event) {
-    event.preventDefault();
-    event.stopPropagation();
-    $.fancybox.open({ src: dawg.image, type: 'image' });
-  });
+  newBox.appendChild(galleryInfo);
+  dawgsGallery.appendChild(newBox);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// document.addEventListener('DOMContentLoaded', function (event) {
+//   for (let i = 0; i < jsonDatabase.length; i++) {
+//     createGallery(jsonDatabase[i]);
+//   }
+// });
+
+// function createGallery(dawg) {
+//   let galleryBox = document.createElement('DIV');
+//   galleryBox.classList.add('galleryBox');
+
+//   let galleryLink = document.createElement('A');
+//   galleryLink.setAttribute('data-fancybox', 'gallery');
+//   galleryLink.setAttribute('data-width', '700');
+//   galleryLink.setAttribute('data-height', '700');
+
+//   let galleryImage = document.createElement('IMG');
+//   galleryImage.classList.add('galleryImage'); 
+//   galleryImage.setAttribute('src', dawg.image);
+//   galleryImage.setAttribute('alt', dawg.name);
+
+//   galleryLink.appendChild(galleryImage);
+//   galleryBox.appendChild(galleryLink);
+
+//   let galleryInfo = document.createElement('DIV');
+//   galleryInfo.classList.add('galleryInfo');
+
+//   let newName = document.createElement('P');
+//   newName.classList.add('nameClass');
+//   newName.innerText = dawg.name;
+//   galleryInfo.appendChild(newName);
+
+//   let newMood = document.createElement('P');
+//   newMood.innerText = "feeling... " + dawg.mood;
+//   newMood.classList.add('moodClass');
+//   galleryInfo.appendChild(newMood);
+
+//   galleryBox.style.backgroundColor = dawg.color;
+
+//   galleryBox.appendChild(galleryInfo);
+
+//   dawgsGallery.appendChild(galleryBox);
+
+
+// //stopping the images from disappearing after exiting lightbox
+//   galleryLink.addEventListener('click', function (event) {
+//     event.preventDefault();
+//     event.stopPropagation();
+//     $.fancybox.open({ src: dawg.image, type: 'image' });
+//   });
+// }

@@ -35,17 +35,16 @@ body {
 
 }
 
-.galleryBox {
+.newBox {
   padding: 1vw;
-  border-radius: 7px;
+  border-radius: 10px;
   text-align: center;
-
 }
 
-.galleryImage {
+.doggy {
   max-width: 100%;
   height: auto;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .galleryInfo {
@@ -60,9 +59,6 @@ body {
 }
 
 .moodClass{
-  margin-top: 5%;
+  margin-top: 0;
 }
 
-img {
-  cursor: pointer;
-}
