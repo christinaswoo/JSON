@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: theOtherFont;
-  src: url("Handmade.otf");
+  src: url("Letters.ttf");
 }
 
 h1, h2 {
@@ -21,7 +21,11 @@ h1 {
 }
 
 body {
-  background-color: #F5ECFD;
+/*  background-color: #F5ECFD;*/
+  background-image: url(pawprints.jpeg);
+  background-color: rgba(245,236,253,0.75);
+  background-blend-mode: lighten;
+  background-attachment: fixed;
   color: #550044;
   font-family: theOtherFont;
 }
