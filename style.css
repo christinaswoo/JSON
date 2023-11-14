@@ -8,6 +8,10 @@
   src: url("Letters.ttf");
 }
 
+#title {
+  cursor: pointer;
+}
+
 h1, h2 {
   font-family: theFont;    
   color: #CC0066;
@@ -60,6 +64,7 @@ body {
 .nameClass {
   font-size: 3vw;
   margin-bottom: 0;
+  font-weight: bolder;
 }
 
 .moodClass{
