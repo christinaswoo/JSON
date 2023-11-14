@@ -1,0 +1,68 @@
+@font-face {
+  font-family: theFont;
+  src: url("LEMONMILK-Regular.otf");
+}
+
+@font-face {
+  font-family: theOtherFont;
+  src: url("Handmade.otf");
+}
+
+h1, h2 {
+  font-family: theFont;    
+  color: #CC0066;
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 5vw;
+  color: #550044;
+}
+
+body {
+  background-color: #F5ECFD;
+  color: #550044;
+  font-family: theOtherFont;
+}
+
+
+#dawgsGallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
+  padding: 5vmin;
+
+}
+
+.galleryBox {
+  padding: 1vw;
+  border-radius: 7px;
+  text-align: center;
+
+}
+
+.galleryImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.galleryInfo {
+  font-size: 2vw;
+  background-color: floralwhite;
+  border-radius: 5px;
+}
+
+.nameClass {
+  font-size: 3vw;
+  margin-bottom: 0;
+}
+
+.moodClass{
+  margin-top: 5%;
+}
+
+img {
+  cursor: pointer;
+}
